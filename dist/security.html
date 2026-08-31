@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>الأمان — مساعد التحقق الرقمي</title>
+<meta name="description" content="كيف يعمل التحقق الحقيقي عبر DNS وHTTP فعليين، وحماية SSRF متعددة الطبقات، والقيود الموثّقة بأمانة." />
+<link rel="canonical" href="https://example.com/security.html" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" href="./assets/icons/icon-192.png" sizes="192x192" />
+<link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<header class="appbar">
+  <a class="appbar-brand" href="index.html"><span class="appbar-logo" aria-hidden="true">🛡️</span><span>مساعد التحقق الرقمي</span></a>
+  <nav class="appbar-nav" aria-label="روابط الموقع">
+    <a href="about.html">عن التطبيق</a>
+    <a href="security.html">الأمان</a>
+    <a href="privacy.html">الخصوصية</a>
+  </nav>
+  <a href="index.html" class="btn btn-secondary" style="padding:8px 14px;font-size:13px;">فتح التطبيق</a>
+</header>
+
+<main class="container page-content">
+  <h1>الأمان</h1>
+
+  <h2>كيف يعمل التحليل فعليًا؟</h2>
+  <p>
+    خط الأنابيب: التحقق من المدخل ← التطبيع (Normalization) ← التقنين (Canonicalization) ← فحص SSRF على المضيف
+    المكتوب حرفيًا ← <strong>حلّ DNS حقيقي</strong> عبر DNS-over-HTTPS ← إعادة فحص SSRF على العناوين الفعلية
+    الناتجة ← <strong>طلب HTTP حقيقي</strong> نحو الوجهة مع تتبّع أي تحويلات ضمن حدود صارمة ← محرك المخاطر ←
+    النتيجة النهائية. هذا التحقق الحي يتم بالكامل على خادم (Cloudflare Worker) وليس من داخل متصفحك — لأن السماح
+    للمتصفح بإجراء هذا النوع من الطلبات مباشرة غير آمن (SSRF).
+  </p>
+
+  <h2>حماية SSRF متعددة الطبقات</h2>
+  <p>
+    يُرفض أي رابط يشير صراحة إلى <code>localhost</code> أو نطاقات IP خاصة (10.x، 172.16-31.x، 192.168.x) أو
+    عناوين Link-local وMetadata مثل <code>169.254.169.254</code> — <strong>مرتين</strong>: أولاً على المضيف
+    كما كُتب، وثانيًا على عنوان IP الفعلي الناتج عن حل DNS حقيقي (وهو ما يمنع هجمات DNS Rebinding التي تعتمد على
+    الإبلاغ عن اسم نطاق بريء ثم تحويله لاحقًا لعنوان داخلي). نفس الفحص المزدوج يُطبَّق على <strong>كل قفزة</strong>
+    ضمن سلسلة أي تحويل (Redirect) — وليس فقط الرابط الأصلي.
+  </p>
+
+  <h2>القيد المتبقي الموثّق بأمانة</h2>
+  <p>
+    التحقق الحالي من DNS يتم <em>قبل</em> استدعاء طلب HTTP الفعلي مباشرة (وليس عبر إمساك اتصال Socket خام مثبَّت
+    على نفس العنوان المُتحقَّق منه). هذا يترك فجوة زمنية نظرية ضئيلة جدًا (TOCTOU) يمكن فيها لمهاجم متقدم جدًا أن
+    يغيّر إجابة DNS بين لحظة الفحص ولحظة الاتصال الفعلي. الحل الكامل لهذه الفجوة يتطلب فتح اتصال Socket خام
+    مثبَّت يدويًا على العنوان المُتحقَّق منه (متاح تقنيًا عبر واجهة <code>cloudflare:sockets</code>)، وهو أمر لم
+    يُنفَّذ في هذه النسخة لتعقيده العالي وصعوبة اختباره بثقة كافية دون بيئة تشغيل Cloudflare Workers حقيقية. هذا
+    القيد موثّق بالكامل في <code>docs/threat-model.md</code>.
+  </p>
+
+  <h2>حدود صارمة على كل طلب</h2>
+  <ul>
+    <li>حد أقصى 5 تحويلات (Redirects) لكل فحص.</li>
+    <li>مهلة زمنية 5 ثوانٍ لكل طلب فرعي، و12 ثانية كحد أقصى للفحص كاملاً.</li>
+    <li>حد أقصى 2 ميجابايت لقراءة أي استجابة — تُقطع القراءة فور تجاوز الحد.</li>
+    <li>مخططات مسموحة: <code>http</code> و<code>https</code> فقط — حتى ضمن عناوين التحويل نفسها.</li>
+  </ul>
+
+  <h2>المخططات المرفوضة</h2>
+  <p>يُرفض أي رابط لا يستخدم <code>http</code> أو <code>https</code> — مثل <code>javascript:</code> أو
+  <code>data:</code> أو <code>file:</code> — صراحةً قبل أي تحليل.</p>
+</main>
+
+<footer class="site-footer">
+  <nav aria-label="روابط تذييل الصفحة">
+    <a href="about.html">عن التطبيق</a>
+    <a href="privacy.html">سياسة الخصوصية</a>
+    <a href="terms.html">شروط الاستخدام</a>
+    <a href="security.html">الأمان</a>
+  </nav>
+  <p>© مساعد التحقق الرقمي. أداة مساعدة وليست جهة رسمية أو حكماً نهائياً على أمان أي رابط.</p>
+</footer>
+</body>
+</html>

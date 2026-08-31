@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>سياسة الخصوصية — مساعد التحقق الرقمي</title>
+<meta name="description" content="سياسة الخصوصية: لا حسابات، لا تخزين دائم للروابط أو الصور الخام، السجل محلي فقط على جهازك." />
+<link rel="canonical" href="https://example.com/privacy.html" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" href="./assets/icons/icon-192.png" sizes="192x192" />
+<link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<header class="appbar">
+  <a class="appbar-brand" href="index.html"><span class="appbar-logo" aria-hidden="true">🛡️</span><span>مساعد التحقق الرقمي</span></a>
+  <nav class="appbar-nav" aria-label="روابط الموقع">
+    <a href="about.html">عن التطبيق</a>
+    <a href="security.html">الأمان</a>
+    <a href="privacy.html">الخصوصية</a>
+  </nav>
+  <a href="index.html" class="btn btn-secondary" style="padding:8px 14px;font-size:13px;">فتح التطبيق</a>
+</header>
+
+<main class="container page-content">
+  <h1>سياسة الخصوصية</h1>
+
+  <h2>لا حسابات</h2>
+  <p>لا يطلب هذا التطبيق إنشاء حساب أو تسجيل دخول، ولا يجمع اسمك أو رقم جوالك أو بريدك الإلكتروني.</p>
+
+  <h2>البيانات الخام مؤقتة فقط</h2>
+  <p>
+    لا يتم حفظ الروابط أو صور رموز QR أو محتوى المستندات التي يتم فحصها بشكل دائم. تُستخدم مؤقتًا أثناء عملية
+    التحليل داخل المتصفح فقط، وبمجرد انتهاء التحليل يتم التخلص منها. لا توجد قاعدة بيانات خلفية تستقبل هذا المحتوى.
+  </p>
+
+  <h2>سجل التحقق المحلي</h2>
+  <p>يُحفظ على جهازك فقط (<code>localStorage</code> في متصفحك) ملخص كل عملية فحص، ويتضمن:</p>
+  <ul>
+    <li>وقت العملية</li>
+    <li>نوع الفحص (رابط أو QR)</li>
+    <li>مستوى الخطر ودرجة الثقة</li>
+    <li>المؤشرات والتوصيات</li>
+  </ul>
+  <p>
+    لا يحتوي السجل أبدًا على الرابط الخام أو محتوى QR الأصلي. يمكنك حذف أي عملية فردية أو حذف كامل السجل في أي وقت
+    من شاشة السجل أو الإعدادات. لا تتم مزامنة السجل إلى أي خدمة سحابية.
+  </p>
+
+  <h2>Hashing ليس حلاً سحريًا للخصوصية</h2>
+  <p>
+    لا نستخدم دوال Hash (مثل SHA-256) كوسيلة لتحويل الرابط إلى صيغة "آمنة" لإرسالها لخدمات خارجية — فالتجزئة لا
+    تعني بالضرورة إخفاء الهوية. لهذا لا يتم إرسال أي رابط لخدمة خارجية إلا عند الحاجة الفعلية، ووفق آلية الخصوصية
+    الرسمية التي يوفرها مزود الخدمة إن وجدت.
+  </p>
+
+  <h2>لا إعلانات ولا تتبع طرف ثالث</h2>
+  <p>لا يحتوي هذا التطبيق على أدوات تتبع إعلانية أو تحليلات طرف ثالث في هذه النسخة.</p>
+</main>
+
+<footer class="site-footer">
+  <nav aria-label="روابط تذييل الصفحة">
+    <a href="about.html">عن التطبيق</a>
+    <a href="privacy.html">سياسة الخصوصية</a>
+    <a href="terms.html">شروط الاستخدام</a>
+    <a href="security.html">الأمان</a>
+  </nav>
+  <p>© مساعد التحقق الرقمي. أداة مساعدة وليست جهة رسمية أو حكماً نهائياً على أمان أي رابط.</p>
+</footer>
+</body>
+</html>

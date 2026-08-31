@@ -1,0 +1,12 @@
+name = "sahh-verify-worker"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+
+# لا توجد أي متغيرات بيئة أو أسرار مطلوبة للنسخة الحالية — التحقق
+# يعتمد فقط على DNS-over-HTTPS المجاني من Cloudflare وfetch() القياسي.
+# عند إضافة مزوّد Threat Intelligence حقيقي مستقبلاً، أضف مفاتيحه عبر:
+#   wrangler secret put GOOGLE_SAFE_BROWSING_API_KEY
+# ولا تضعها هنا أو في أي ملف داخل هذا المستودع.
+
+[observability]
+enabled = true

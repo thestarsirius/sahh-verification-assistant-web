@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "description": "فقط مسارات /api/* تُوجَّه إلى Cloudflare Pages Functions — كل شيء آخر يُخدَّم كملفات ثابتة مباشرة. يمنع هذا أي غموض حول التوجيه بين الواجهة والـBackend.",
+  "include": ["/api/*"],
+  "exclude": []
+}

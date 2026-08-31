@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>عن التطبيق — مساعد التحقق الرقمي</title>
+<meta name="description" content="مساعد التحقق الرقمي هو أداة مساعدة لتحليل الروابط وأكواد QR وتقديم تقييم وتوجيه يساعدك على اتخاذ قرار أكثر أمانًا. ليس جهة رسمية." />
+<link rel="canonical" href="https://example.com/about.html" />
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" href="./assets/icons/icon-192.png" sizes="192x192" />
+<link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<header class="appbar">
+  <a class="appbar-brand" href="index.html"><span class="appbar-logo" aria-hidden="true">🛡️</span><span>مساعد التحقق الرقمي</span></a>
+  <nav class="appbar-nav" aria-label="روابط الموقع">
+    <a href="about.html">عن التطبيق</a>
+    <a href="security.html">الأمان</a>
+    <a href="privacy.html">الخصوصية</a>
+  </nav>
+  <a href="index.html" class="btn btn-secondary" style="padding:8px 14px;font-size:13px;">فتح التطبيق</a>
+</header>
+
+<main class="container page-content">
+  <h1>عن التطبيق</h1>
+  <p>
+    <strong>مساعد التحقق الرقمي</strong> أداة مساعدة تحلل الروابط وأكواد QR، وتقدّم تقييمًا وتوجيهًا يساعدك على اتخاذ
+    قرار أكثر أمانًا قبل الوثوق بمحتوى رقمي. التطبيق <strong>ليس جهة رسمية</strong> وليس حكمًا نهائيًا على أمان أي
+    رابط، ولا يضمن السلامة بنسبة 100% لأي محتوى.
+  </p>
+
+  <h2>كيف يعمل التحقق فعليًا</h2>
+  <p>
+    عند فحص رابط، يُرسَل إلى خدمة تحقق حقيقية (Cloudflare Worker) تُجري تحليلاً فعليًا: تحقق من بنية الرابط،
+    تحليل النطاق، حلّ DNS حقيقي، ثم زيارة الوجهة فعليًا مع تتبّع أي تحويلات (Redirects) ضمن حدود آمنة. النتيجة
+    مبنية على هذه المعطيات الفعلية، وليست تخميناً.
+  </p>
+
+  <h2>لماذا "يحتاج إلى تحقق" 🟡 كثيرًا؟</h2>
+  <p>
+    سياسة القرار في هذا التطبيق محافظة عمدًا: عندما لا تكون الأدلة المتوفرة كافية لإصدار حكم موثوق (نطاق غير
+    معروف، تعذّر التحقق من الوجهة، إلخ)، تظهر النتيجة دائمًا "يحتاج إلى تحقق" بدل إعطائك ثقة زائفة بأن الرابط آمن.
+  </p>
+
+  <h2>البنية التقنية</h2>
+  <p>
+    يفصل التطبيق منطق التحليل تمامًا عن الواجهة عبر طبقة <code>IAnalysisEngine</code> قابلة للاستبدال. في
+    الإنتاج تُستخدم <code>LiveAnalysisEngine</code> التي تستدعي الـWorker الحقيقي دائمًا؛ يبقى المحرك التجريبي
+    (Mock) موجودًا فقط داخل الاختبارات الآلية للمشروع، ولا يُستخدم إطلاقًا في المسار الذي يراه المستخدم. راجع
+    صفحة <a href="security.html">الأمان</a> لتفاصيل إضافية حول حماية SSRF وحدود التحقق.
+  </p>
+</main>
+
+<footer class="site-footer">
+  <nav aria-label="روابط تذييل الصفحة">
+    <a href="about.html">عن التطبيق</a>
+    <a href="privacy.html">سياسة الخصوصية</a>
+    <a href="terms.html">شروط الاستخدام</a>
+    <a href="security.html">الأمان</a>
+  </nav>
+  <p>© مساعد التحقق الرقمي. أداة مساعدة وليست جهة رسمية أو حكماً نهائياً على أمان أي رابط.</p>
+</footer>
+</body>
+</html>

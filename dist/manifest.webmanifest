@@ -1,0 +1,18 @@
+{
+  "name": "مساعد التحقق الرقمي",
+  "short_name": "التحقق الرقمي",
+  "description": "افحص الروابط وأكواد QR واحصل على تنبيه وتوجيه أمني قبل أن تثق.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080b12",
+  "theme_color": "#080b12",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    { "src": "./assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
