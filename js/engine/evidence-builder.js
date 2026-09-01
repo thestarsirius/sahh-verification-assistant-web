@@ -1,10 +1,4 @@
-// ============================================================
-// evidence-builder.js
-// استخراج الأدلة الثابتة من الرابط.
-// ============================================================
-
 export const TRUSTED_DOMAINS = [
-  // جهات ومنصات سعودية حكومية معروفة
   'gov.sa',
   'sa.gov.sa',
   'my.gov.sa',
@@ -23,13 +17,11 @@ export const TRUSTED_DOMAINS = [
   'cst.gov.sa',
   'gosi.gov.sa',
   'balady.gov.sa',
-  'amana.gov.sa',
   'najiz.sa',
   'etimad.sa',
   'qiwa.sa',
   'jadarat.sa',
 
-  // جهات / خدمات موثوقة غير حكومية
   'apple.com',
   'google.com',
   'microsoft.com',
@@ -37,7 +29,7 @@ export const TRUSTED_DOMAINS = [
   'stcpay.com.sa',
   'stc.com.sa',
   'sabb.com',
-  'riyadbank.com',
+  'riyadbank.com'
 ];
 
 export const SUSPICIOUS_TLDS = [
@@ -47,7 +39,7 @@ export const SUSPICIOUS_TLDS = [
   '.club',
   '.info',
   '.click',
-  '.gq',
+  '.gq'
 ];
 
 export const BRAND_LOOKALIKES = [
@@ -59,11 +51,13 @@ export const BRAND_LOOKALIKES = [
   'bank',
   'rajhi',
   'amazon',
-  'netflix',
+  'netflix'
 ];
 
 export function isTrustedDomain(domain) {
-  const normalized = String(domain || '').toLowerCase().replace(/\.$/, '');
+  const normalized = String(domain || '')
+    .toLowerCase()
+    .replace(/\.$/, '');
 
   return TRUSTED_DOMAINS.some(
     (trusted) =>
@@ -85,41 +79,38 @@ const PHISHING_KEYWORDS = [
   'confirm',
   'password',
   'wallet',
-  'unlock',
+  'unlock'
 ];
 
 export function containsPhishingKeyword(hostAndPath) {
-  const s = (hostAndPath || '').toLowerCase();
-  return PHISHING_KEYWORDS.some((k) => s.includes(k));
+  const s = String(hostAndPath || '').toLowerCase();
+
+  return PHISHING_KEYWORDS.some((keyword) =>
+    s.includes(keyword)
+  );
 }
 
-/**
- * @param {URL} normalizedUrl
- * @param {{
- *   domain:string,
- *   hasNonAsciiOriginalLabel:boolean,
- *   isPunycode:boolean
- * }} canonical
- * @returns evidence object consumed directly by RiskEngine.assess()
- */
 export function buildStaticEvidence(normalizedUrl, canonical) {
-  const isIp = /^\d{1,3}(\.\d{1,3}){3}$/.test(
-    normalizedUrl.hostname
-  );
+  const domain = canonical.domain;
+
+  const isIp =
+    /^\d{1,3}(\.\d{1,3}){3}$/.test(
+      normalizedUrl.hostname
+    );
 
   const hyphenCount =
-    (canonical.domain.match(/-/g) || []).length;
+    (domain.match(/-/g) || []).length;
 
   const suspiciousTld =
-    SUSPICIOUS_TLDS.some((t) =>
-      canonical.domain.endsWith(t)
+    SUSPICIOUS_TLDS.some((tld) =>
+      domain.endsWith(tld)
     );
 
   const subdomainDepth =
-    canonical.domain.split('.').length;
+    domain.split('.').length;
 
   const trusted =
-    isTrustedDomain(canonical.domain);
+    isTrustedDomain(domain);
 
   const fullPath =
     (
@@ -132,12 +123,12 @@ export function buildStaticEvidence(normalizedUrl, canonical) {
 
   const lookalike =
     !trusted &&
-    BRAND_LOOKALIKES.some((b) =>
-      canonical.domain.includes(b)
+    BRAND_LOOKALIKES.some((brand) =>
+      domain.includes(brand)
     );
 
   return {
-    domain: canonical.domain,
+    domain,
     isHttps: normalizedUrl.protocol === 'https:',
     isIpLiteral: isIp,
     isTrustedDomain: trusted,
@@ -149,6 +140,6 @@ export function buildStaticEvidence(normalizedUrl, canonical) {
     hasNonAsciiOriginalLabel:
       canonical.hasNonAsciiOriginalLabel,
     isPunycode:
-      canonical.isPunycode,
+      canonical.isPunycode
   };
 }
