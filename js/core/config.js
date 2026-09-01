@@ -30,7 +30,7 @@ export const AppConfig = Object.freeze({
   // الموصى بها في README.md — لا حاجة لإعداد CORS في هذه الحالة).
   // إن نُشر الـWorker على نطاق فرعي منفصل، غيّر هذه القيمة إلى عنوانه
   // الكامل بعد النشر (مثل: 'https://sahh-verify-worker.example.workers.dev/api').
-  apiBaseUrl: 'https://sahh-verification-assistant-web.shahad1423asad.workers.dev',
+  apiBaseUrl: 'https://sahh-verification-assistant-web.shahad1423asad.workers.dev/api',
 
   buildDefaultEngine() {
     switch (AppConfig.mode) {
