@@ -1,10 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sahh-verification-assistant-web",
-  "main": "worker/src/index.js",
   "compatibility_date": "2026-08-28",
   "observability": {
     "enabled": true
+  },
+  "ai": {
+    "binding": "AI"
   },
   "assets": {
     "directory": "."
