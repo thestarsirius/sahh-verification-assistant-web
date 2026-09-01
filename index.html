@@ -4,45 +4,39 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-<title>مساعد التحقق الرقمي — افحص قبل أن تثق</title>
+<title>صحّ — مساعد التحقق الرقمي</title>
 
 <meta
   name="description"
-  content="حلّل الروابط وأكواد QR واحصل على تنبيه وتوجيه يساعدك على اتخاذ قرار أكثر أمانًا. أداة مساعدة خصوصية أولاً، بدون حسابات، بدون تخزين روابط خام."
+  content="صحّ — مساعد التحقق الرقمي. افحص الروابط قبل أن تثق بها، واحصل على نتيجة وتحليل ونصائح تساعدك على اتخاذ قرار أكثر أمانًا."
 />
 
 <meta name="theme-color" content="#080b12" />
 
-<link rel="canonical" href="https://example.com/" />
+<link rel="canonical" href="/" />
 <link rel="manifest" href="./manifest.webmanifest" />
 <link rel="icon" href="./assets/icons/icon-192.png" sizes="192x192" />
 <link rel="apple-touch-icon" href="./assets/icons/icon-192.png" />
 <link rel="stylesheet" href="./css/styles.css" />
 
-<!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="مساعد التحقق الرقمي — افحص قبل أن تثق" />
+<meta property="og:title" content="صحّ — مساعد التحقق الرقمي" />
 <meta
   property="og:description"
-  content="حلّل الروابط وأكواد QR واحصل على تنبيه وتوجيه يساعدك على اتخاذ قرار أكثر أمانًا."
+  content="افحص قبل أن تثق. أداة مساعدة لتحليل الروابط وتقديم توجيهات أمنية."
 />
 <meta property="og:locale" content="ar_SA" />
-<meta property="og:url" content="https://example.com/" />
+
 <meta name="twitter:card" content="summary" />
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "مساعد التحقق الرقمي",
+  "name": "صحّ — مساعد التحقق الرقمي",
   "applicationCategory": "SecurityApplication",
-  "operatingSystem": "Any (Web)",
-  "description": "أداة تحليل روابط وأكواد QR لمساعدة المستخدم على اتخاذ قرار أكثر أمانًا. ليست جهة رسمية وليست حكماً نهائياً على أمان أي رابط.",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
+  "operatingSystem": "Any",
+  "description": "أداة مساعدة لتحليل الروابط وتقديم إرشادات أمنية للمستخدم."
 }
 </script>
 </head>
@@ -60,13 +54,12 @@
   aria-live="polite"
 ></div>
 
-<!-- ================= HEADER ================= -->
 
 <header class="appbar">
 
   <div class="appbar-brand">
     <span class="appbar-logo" aria-hidden="true">🛡️</span>
-    <span>مساعد التحقق الرقمي</span>
+    <span>صحّ</span>
   </div>
 
   <nav class="appbar-nav" aria-label="روابط الموقع">
@@ -102,100 +95,193 @@
 
 <main id="main-content" class="container">
 
-  <!-- ================= HOME ================= -->
 
-  <section
-    id="screen-home"
-    class="app-screen active"
-    aria-labelledby="home-title"
+<!-- =====================================================
+HOME
+===================================================== -->
+
+<section
+  id="screen-home"
+  class="app-screen active"
+  aria-labelledby="home-title"
+>
+
+  <div class="hero">
+
+    <h1 id="home-title" class="hero-title">
+      افحص قبل أن تثق.
+    </h1>
+
+    <p class="hero-sub">
+      حلّل الرابط قبل فتحه، واعرف مستوى الثقة والمؤشرات التي تستحق انتباهك.
+    </p>
+
+    <div class="trust-strip">
+
+      <span>🔒 بدون حسابات</span>
+
+      <span>📵 لا تخزين لروابط خام</span>
+
+      <span>🛡️ تحليل أمني</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- URL FORM -->
+
+  <form
+    id="url-form"
+    class="url-form"
+    aria-label="فحص رابط"
   >
 
-    <div class="hero">
+    <label
+      class="visually-hidden"
+      for="url-input"
+    >
+      أدخل الرابط المراد فحصه
+    </label>
 
-      <h1 id="home-title" class="hero-title">
-        افحص قبل أن تثق.
-      </h1>
+    <div class="input-row">
 
-      <p class="hero-sub">
-        حلّل الروابط وQR Code واحصل على تنبيه وتوجيه يساعدك على اتخاذ قرار أكثر أمانًا.
+      <span aria-hidden="true">
+        🔗
+      </span>
+
+      <input
+        id="url-input"
+        type="text"
+        inputmode="url"
+        placeholder="example.com/path"
+        autocomplete="off"
+      />
+
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary btn-block"
+    >
+      تحقق الآن
+    </button>
+
+  </form>
+
+
+  <!-- INFORMATION CARDS -->
+
+  <div class="action-cards">
+
+    <div
+      class="action-card"
+      style="cursor:default;"
+    >
+
+      <span
+        class="action-card-icon"
+        aria-hidden="true"
+      >
+        🔍
+      </span>
+
+      <h3>
+        تحليل الرابط
+      </h3>
+
+      <p>
+        افحص اسم النطاق وخصائص الرابط وبعض المؤشرات التقنية
+        قبل اتخاذ قرارك.
       </p>
-
-      <div class="trust-strip">
-
-        <span>🔒 بدون حسابات</span>
-
-        <span>📵 لا تخزين لروابط خام</span>
-
-        <span>📱 يعمل من أي جهاز</span>
-
-      </div>
 
     </div>
 
 
-    <!-- ================= URL FORM ================= -->
-
-    <form
-      id="url-form"
-      class="url-form"
-      aria-label="فحص رابط"
+    <div
+      class="action-card"
+      style="cursor:default;"
     >
 
-      <label
-        class="visually-hidden"
-        for="url-input"
+      <span
+        class="action-card-icon"
+        aria-hidden="true"
       >
-        أدخل الرابط المراد فحصه
-      </label>
+        🔒
+      </span>
 
-      <div class="input-row">
+      <h3>
+        خصوصية أولاً
+      </h3>
 
-        <span aria-hidden="true">🔗</span>
+      <p>
+        لا تحتاج إلى إنشاء حساب، ولا يُطلب منك إدخال معلومات
+        شخصية لإجراء الفحص.
+      </p>
 
-        <input
-          id="url-input"
-          type="text"
-          inputmode="url"
-          placeholder="example.com/path"
-          autocomplete="off"
-        />
+    </div>
 
-      </div>
+  </div>
 
-      <button
-        type="submit"
-        class="btn btn-primary btn-block"
+
+  <!-- =====================================================
+  DIGITAL SAFETY TIPS
+  ===================================================== -->
+
+  <section
+    class="tips-section"
+    aria-labelledby="tips-title"
+    style="margin-top:32px;"
+  >
+
+    <div style="margin-bottom:16px;">
+
+      <h2
+        id="tips-title"
+        class="screen-title"
+        style="margin-bottom:8px;"
       >
-        تحقق الآن
-      </button>
+        🧠 نصائح وتوجيهات رقمية
+      </h2>
 
-    </form>
+      <p
+        style="
+          color:var(--text-dim);
+          font-size:13px;
+          line-height:1.8;
+          margin:0;
+        "
+      >
+        خطوات بسيطة تساعدك على اكتشاف الروابط المشبوهة
+        قبل أن تتحول إلى مشكلة.
+      </p>
+
+    </div>
 
 
-    <!-- ================= ACTION CARDS ================= -->
+    <div
+      style="
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+      "
+    >
 
-    <div class="action-cards">
-
-      <button
-        type="button"
+      <div
         class="action-card"
-        id="open-qr-btn"
+        style="cursor:default;"
       >
 
-        <span
-          class="action-card-icon"
-          aria-hidden="true"
-        >
-          📷
-        </span>
-
-        <h3>فحص QR</h3>
+        <h3>
+          🔎 لا تنخدع بشكل الرابط
+        </h3>
 
         <p>
-          شغّل كاميرا جهازك وامسح كود QR — لن يُفتح الرابط تلقائياً قبل تحليله.
+          وجود شعار الجهة أو اسمها داخل الرابط لا يعني أن الرابط
+          تابع لها. ركّز على النطاق الأساسي نفسه.
         </p>
 
-      </button>
+      </div>
 
 
       <div
@@ -203,806 +289,490 @@
         style="cursor:default;"
       >
 
-        <span
-          class="action-card-icon"
-          aria-hidden="true"
-        >
-          🔒
-        </span>
-
-        <h3>خصوصية أولاً</h3>
+        <h3>
+          📩 الرسالة ليست دليلاً
+        </h3>
 
         <p>
-          لا حسابات، لا تسجيل دخول، ولا تخزين دائم لأي رابط أو صورة خام — التحليل يتم مؤقتاً فقط.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <!-- ================= DIGITAL SAFETY TIPS ================= -->
-
-    <section
-      class="tips-section"
-      aria-labelledby="tips-title"
-      style="margin-top:32px;"
-    >
-
-      <div style="margin-bottom:16px;">
-
-        <h2
-          id="tips-title"
-          style="margin:0 0 7px;"
-        >
-          🧠 دليل الوعي الرقمي
-        </h2>
-
-        <p
-          style="
-            margin:0;
-            color:var(--text-dim);
-            font-size:13px;
-            line-height:1.8;
-          "
-        >
-          أشياء بسيطة قد تساعدك على اكتشاف الخداع قبل أن تبدأ المشكلة.
+          حتى لو وصلت الرسالة من شخص تعرفه، لا تفترض أن الرابط
+          آمن. قد يكون الحساب نفسه مخترقًا.
         </p>
 
       </div>
 
 
       <div
-        style="
-          display:grid;
-          gap:10px;
-        "
+        class="action-card"
+        style="cursor:default;"
       >
 
-        <!-- TIP 1 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            🔎
-          </span>
-
-          <h3>لا تثق بالاسم وحده</h3>
-
-          <p>
-            قد يستخدم المحتال اسمًا قريبًا جدًا من اسم الجهة الأصلية.
-            افحص النطاق نفسه ولا تعتمد على شكل الصفحة أو الشعار فقط.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 2 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            ⏳
-          </span>
-
-          <h3>الاستعجال يستحق التوقف</h3>
-
-          <p>
-            عبارات مثل «تحقق الآن» أو «سيتم إيقاف حسابك» قد تكون وسيلة لدفعك
-            إلى اتخاذ قرار سريع قبل أن تفكر.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 3 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            📱
-          </span>
-
-          <h3>افتح التطبيق بنفسك</h3>
-
-          <p>
-            إذا وصلتك رسالة تطلب تسجيل الدخول، افتح التطبيق أو الموقع الرسمي
-            بنفسك بدل استخدام الرابط الموجود داخل الرسالة.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 4 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            🔐
-          </span>
-
-          <h3>HTTPS ليس شهادة ثقة</h3>
-
-          <p>
-            وجود علامة القفل يعني أن الاتصال مشفّر، لكنه لا يثبت أن الموقع
-            تابع للجهة التي يدّعي الانتماء إليها.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 5 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            📷
-          </span>
-
-          <h3>QR Code ليس ضمانًا</h3>
-
-          <p>
-            كود QR قد يخفي رابطًا غير متوقع. تعامل معه مثل أي رابط آخر
-            وافحص الوجهة قبل فتحها.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 6 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            🧩
-          </span>
-
-          <h3>انتبه للرابط المختصر</h3>
-
-          <p>
-            الروابط المختصرة قد تخفي الوجهة الحقيقية. إذا لم تعرف إلى أين
-            سيقودك الرابط، لا تتعامل معه قبل التحقق.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 7 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            🔑
-          </span>
-
-          <h3>رمز التحقق ليس شيئًا عاديًا</h3>
-
-          <p>
-            لا تشارك رموز التحقق التي تصلك على هاتفك لمجرد أن شخصًا طلبها منك.
-            تعامل معها كمفتاح مؤقت لحسابك.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 8 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            🛑
-          </span>
-
-          <h3>التوقف قرار ذكي</h3>
-
-          <p>
-            إذا شعرت أن الرابط غريب أو أن الرسالة تضغط عليك، لا تحتاج إلى
-            إثبات أنه احتيالي. يمكنك ببساطة التوقف والتحقق من الجهة رسميًا.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 9 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            📨
-          </span>
-
-          <h3>افصل بين الرسالة والرابط</h3>
-
-          <p>
-            حتى لو بدت الرسالة رسمية، تحقق من الرابط بشكل مستقل.
-            هوية المرسل وحدها لا تكفي لإثبات سلامة الوجهة.
-          </p>
-
-        </article>
-
-
-        <!-- TIP 10 -->
-
-        <article
-          class="action-card"
-          style="cursor:default;"
-        >
-
-          <span
-            class="action-card-icon"
-            aria-hidden="true"
-          >
-            👀
-          </span>
-
-          <h3>راقب التفاصيل الصغيرة</h3>
-
-          <p>
-            حرف واحد أو شرطة إضافية أو امتداد مختلف قد يغيّر النطاق بالكامل.
-            قبل تسجيل الدخول، ألقِ نظرة سريعة على عنوان الموقع.
-          </p>
-
-        </article>
+        <h3>
+          🔐 لا تستخدم كلمة مرورك مباشرة
+        </h3>
+
+        <p>
+          إذا طلب منك رابط غير متوقع تسجيل الدخول، أغلقه
+          وافتح تطبيق الجهة أو موقعها الرسمي بنفسك.
+        </p>
 
       </div>
 
-    </section>
+
+      <div
+        class="action-card"
+        style="cursor:default;"
+      >
+
+        <h3>
+          🎁 العروض المستعجلة تستحق الشك
+        </h3>
+
+        <p>
+          عبارات مثل "آخر فرصة" أو "فزت الآن" أو "سيُغلق حسابك"
+          قد تكون وسيلة لدفعك للتصرف بسرعة دون تفكير.
+        </p>
+
+      </div>
 
 
-    <!-- ================= PRIVACY NOTE ================= -->
+      <div
+        class="action-card"
+        style="cursor:default;"
+      >
 
-    <p class="privacy-note">
+        <h3>
+          🧩 افصل بين الرابط والطلب
+        </h3>
 
-      ⚠️ هذا التطبيق أداة مساعدة وليس جهة رسمية أو حكمًا نهائيًا على أمان أي رابط.
+        <p>
+          حتى لو كان الموقع حقيقيًا، اسأل نفسك:
+          هل كان من المنطقي أن يطلب مني هذه المعلومة الآن؟
+        </p>
 
-      إذا كانت الأدلة غير كافية، ستظهر النتيجة دائماً كـ
-      "يحتاج إلى تحقق" 🟡
-      بدل إعطاء ثقة زائفة.
+      </div>
 
-    </p>
+
+      <div
+        class="action-card"
+        style="cursor:default;"
+      >
+
+        <h3>
+          🛑 إذا شككت، توقف
+        </h3>
+
+        <p>
+          عدم الضغط على الرابط لا يسبب خسارة غالبًا،
+          أما إدخال بياناتك في موقع مزيف فقد يصعب التراجع عنه.
+        </p>
+
+      </div>
+
+    </div>
 
   </section>
 
 
-  <!-- ================= QR SCAN ================= -->
+  <!-- DISCLAIMER -->
 
-  <section
-    id="screen-qr"
-    class="app-screen"
-    aria-labelledby="qr-title"
-  >
+  <p class="privacy-note">
 
-    <div class="screen-topbar">
+    ⚠️ هذا التطبيق أداة مساعدة وليس جهة رسمية أو حكمًا نهائيًا
+    على أمان أي رابط.
 
-      <button
-        type="button"
-        class="icon-btn"
-        id="qr-back-btn"
-        aria-label="رجوع"
-      >
-        →
-      </button>
+    إذا كانت الأدلة غير كافية، ستظهر النتيجة كـ
+    "يحتاج إلى تحقق" بدل إعطاء ثقة زائفة.
 
-      <h2
-        id="qr-title"
-        class="screen-title"
-      >
-        فحص QR
-      </h2>
+  </p>
 
-      <span style="width:38px;"></span>
-
-    </div>
+</section>
 
 
-    <div class="camera-wrap">
 
-      <div
-        id="qr-placeholder"
-        class="camera-placeholder"
-      >
+<!-- =====================================================
+ANALYZING
+===================================================== -->
 
-        <span style="font-size:26px;">📷</span>
+<section
+  id="screen-analyzing"
+  class="app-screen"
+  aria-labelledby="analyzing-title"
+>
 
-        <span>
-          جارٍ تشغيل الكاميرا…
-        </span>
-
-      </div>
-
-      <video
-        id="qr-video"
-        autoplay
-        playsinline
-        muted
-        hidden
-      ></video>
-
-      <div
-        class="scan-frame"
-        aria-hidden="true"
-      >
-
-        <span class="corner tl"></span>
-        <span class="corner tr"></span>
-        <span class="corner bl"></span>
-        <span class="corner br"></span>
-
-        <div class="scan-line"></div>
-
-      </div>
-
-    </div>
-
+  <div class="analyzing-wrap">
 
     <div
-      id="qr-fallback"
-      hidden
-      style="
-        text-align:center;
-        margin-top:20px;
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-        align-items:center;
-      "
+      class="spinner-ring"
+      aria-hidden="true"
     >
-
-      <p
-        class="qr-fallback-message"
-        style="
-          color:var(--text-dim);
-          font-size:13px;
-          max-width:320px;
-        "
-      ></p>
-
-      <button
-        type="button"
-        class="btn btn-primary"
-        id="qr-manual-entry-btn"
-      >
-        إدخال الرابط يدويًا
-      </button>
-
+      <div class="track"></div>
+      <span style="font-size:22px;">
+        🔎
+      </span>
     </div>
 
+    <h2
+      id="analyzing-title"
+      class="screen-title"
+    >
+      جاري تحليل الرابط...
+    </h2>
+
+    <div
+      id="analyzing-steps-list"
+      class="analyzing-steps"
+    ></div>
+
+    <button
+      type="button"
+      class="btn btn-secondary"
+      id="cancel-analysis-btn"
+    >
+      إلغاء التحليل
+    </button>
 
     <p
       style="
-        text-align:center;
-        font-size:12px;
-        color:var(--text-dim);
-        margin-top:16px;
+        font-size:11px;
+        color:var(--text-faint);
+        max-width:260px;
       "
     >
-      وجّه الكاميرا نحو كود QR — لن يتم فتح أي رابط تلقائياً قبل تحليله.
+      لا يتم إرسال أو حفظ المحتوى الأصلي بشكل دائم أثناء هذه العملية.
     </p>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- ================= ANALYZING ================= -->
 
-  <section
-    id="screen-analyzing"
-    class="app-screen"
-    aria-labelledby="analyzing-title"
-  >
+<!-- =====================================================
+RESULT
+===================================================== -->
 
-    <div class="analyzing-wrap">
+<section
+  id="screen-result"
+  class="app-screen"
+  aria-labelledby="result-title"
+>
 
-      <div
-        class="spinner-ring"
-        aria-hidden="true"
-      >
+  <div class="screen-topbar">
 
-        <div class="track"></div>
-
-        <span style="font-size:22px;">
-          🔎
-        </span>
-
-      </div>
-
-
-      <h2
-        id="analyzing-title"
-        class="screen-title"
-      >
-        جاري تحليل الرابط...
-      </h2>
-
-
-      <div
-        id="analyzing-steps-list"
-        class="analyzing-steps"
-      ></div>
-
-
-      <button
-        type="button"
-        class="btn btn-secondary"
-        id="cancel-analysis-btn"
-      >
-        إلغاء التحليل
-      </button>
-
-
-      <p
-        style="
-          font-size:11px;
-          color:var(--text-faint);
-          max-width:260px;
-        "
-      >
-        لا يتم إرسال أو حفظ المحتوى الأصلي بشكل دائم أثناء هذه العملية.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= RESULT ================= -->
-
-  <section
-    id="screen-result"
-    class="app-screen"
-    aria-labelledby="result-title"
-  >
-
-    <div class="screen-topbar">
-
-      <span style="width:38px;"></span>
-
-      <h2
-        id="result-title"
-        class="screen-title"
-      >
-        نتيجة الفحص
-      </h2>
-
-      <span style="width:38px;"></span>
-
-    </div>
-
-    <div id="result-content"></div>
-
-  </section>
-
-
-  <!-- ================= ERROR ================= -->
-
-  <section
-    id="screen-error"
-    class="app-screen"
-    aria-labelledby="error-title-holder"
-  >
+    <span style="width:38px;"></span>
 
     <h2
-      id="error-title-holder"
-      class="visually-hidden"
+      id="result-title"
+      class="screen-title"
     >
-      تعذر إتمام الفحص
+      نتيجة الفحص
     </h2>
 
-    <div id="error-content"></div>
+    <span style="width:38px;"></span>
 
-  </section>
+  </div>
+
+  <div id="result-content"></div>
+
+</section>
 
 
-  <!-- ================= HISTORY ================= -->
 
-  <section
-    id="screen-history"
-    class="app-screen"
-    aria-labelledby="history-title"
+<!-- =====================================================
+ERROR
+===================================================== -->
+
+<section
+  id="screen-error"
+  class="app-screen"
+  aria-labelledby="error-title-holder"
+>
+
+  <h2
+    id="error-title-holder"
+    class="visually-hidden"
+  >
+    تعذر إتمام الفحص
+  </h2>
+
+  <div id="error-content"></div>
+
+</section>
+
+
+
+<!-- =====================================================
+HISTORY
+===================================================== -->
+
+<section
+  id="screen-history"
+  class="app-screen"
+  aria-labelledby="history-title"
+>
+
+  <div class="screen-topbar">
+
+    <button
+      type="button"
+      class="icon-btn"
+      id="history-back-btn"
+      aria-label="رجوع"
+    >
+      →
+    </button>
+
+    <h2
+      id="history-title"
+      class="screen-title"
+    >
+      سجل التحقق
+    </h2>
+
+    <button
+      type="button"
+      class="icon-btn"
+      id="history-delete-all-btn"
+      aria-label="حذف كل السجل"
+      hidden
+    >
+      🗑️
+    </button>
+
+  </div>
+
+  <div
+    id="history-list"
+    style="
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+    "
+  ></div>
+
+</section>
+
+
+
+<!-- =====================================================
+HISTORY DETAIL
+===================================================== -->
+
+<section
+  id="screen-history-detail"
+  class="app-screen"
+  aria-labelledby="history-detail-title"
+>
+
+  <div class="screen-topbar">
+
+    <button
+      type="button"
+      class="icon-btn"
+      id="history-detail-back-btn"
+      aria-label="رجوع"
+    >
+      →
+    </button>
+
+    <h2
+      id="history-detail-title"
+      class="screen-title"
+    >
+      تفاصيل العملية
+    </h2>
+
+    <span style="width:38px;"></span>
+
+  </div>
+
+  <div id="history-detail-content"></div>
+
+</section>
+
+
+
+<!-- =====================================================
+SETTINGS
+===================================================== -->
+
+<section
+  id="screen-settings"
+  class="app-screen"
+  aria-labelledby="settings-title"
+>
+
+  <div class="screen-topbar">
+
+    <button
+      type="button"
+      class="icon-btn"
+      id="settings-back-btn"
+      aria-label="رجوع"
+    >
+      →
+    </button>
+
+    <h2
+      id="settings-title"
+      class="screen-title"
+    >
+      الإعدادات
+    </h2>
+
+    <span style="width:38px;"></span>
+
+  </div>
+
+
+  <div
+    class="settings-row"
+    id="settings-history-row"
+    role="button"
+    tabindex="0"
   >
 
-    <div class="screen-topbar">
+    <span class="settings-row-left">
+      🕘 سجل التحقق
+    </span>
 
-      <button
-        type="button"
-        class="icon-btn"
-        id="history-back-btn"
-        aria-label="رجوع"
-      >
-        →
-      </button>
+    <span>›</span>
 
-      <h2
-        id="history-title"
-        class="screen-title"
-      >
-        سجل التحقق
-      </h2>
+  </div>
 
-      <button
-        type="button"
-        class="icon-btn"
-        id="history-delete-all-btn"
-        aria-label="حذف كل السجل"
-        hidden
-      >
-        🗑️
-      </button>
 
-    </div>
+  <div
+    class="settings-row"
+    id="settings-delete-all-row"
+    role="button"
+    tabindex="0"
+  >
 
-    <div
-      id="history-list"
+    <span
+      class="settings-row-left"
+      style="color:var(--red);"
+    >
+      🗑️ حذف كل السجل
+    </span>
+
+    <span>›</span>
+
+  </div>
+
+
+  <a
+    class="settings-row"
+    href="terms.html"
+  >
+    <span class="settings-row-left">
+      📄 شروط الاستخدام
+    </span>
+    <span>›</span>
+  </a>
+
+
+  <a
+    class="settings-row"
+    href="privacy.html"
+  >
+    <span class="settings-row-left">
+      🔒 سياسة الخصوصية
+    </span>
+    <span>›</span>
+  </a>
+
+
+  <a
+    class="settings-row"
+    href="about.html"
+  >
+    <span class="settings-row-left">
+      ℹ️ حول التطبيق
+    </span>
+    <span>›</span>
+  </a>
+
+
+  <div
+    style="
+      margin-top:18px;
+      background:var(--surface);
+      border:1px solid var(--border-soft);
+      border-radius:14px;
+      padding:14px;
+    "
+  >
+
+    <p
+      id="settings-engine-info"
+      style="
+        margin:0 0 8px;
+        font-size:12.5px;
+        color:var(--text-dim);
+      "
+    ></p>
+
+    <p
+      id="settings-usage-info"
+      style="
+        margin:0 0 12px;
+        font-size:12.5px;
+        color:var(--text-dim);
+      "
+    ></p>
+
+    <label
       style="
         display:flex;
-        flex-direction:column;
-        gap:9px;
-      "
-    ></div>
-
-  </section>
-
-
-  <!-- ================= HISTORY DETAIL ================= -->
-
-  <section
-    id="screen-history-detail"
-    class="app-screen"
-    aria-labelledby="history-detail-title"
-  >
-
-    <div class="screen-topbar">
-
-      <button
-        type="button"
-        class="icon-btn"
-        id="history-detail-back-btn"
-        aria-label="رجوع"
-      >
-        →
-      </button>
-
-      <h2
-        id="history-detail-title"
-        class="screen-title"
-      >
-        تفاصيل العملية
-      </h2>
-
-      <span style="width:38px;"></span>
-
-    </div>
-
-    <div id="history-detail-content"></div>
-
-  </section>
-
-
-  <!-- ================= SETTINGS ================= -->
-
-  <section
-    id="screen-settings"
-    class="app-screen"
-    aria-labelledby="settings-title"
-  >
-
-    <div class="screen-topbar">
-
-      <button
-        type="button"
-        class="icon-btn"
-        id="settings-back-btn"
-        aria-label="رجوع"
-      >
-        →
-      </button>
-
-      <h2
-        id="settings-title"
-        class="screen-title"
-      >
-        الإعدادات
-      </h2>
-
-      <span style="width:38px;"></span>
-
-    </div>
-
-
-    <div
-      class="settings-row"
-      id="settings-history-row"
-      role="button"
-      tabindex="0"
-    >
-
-      <span class="settings-row-left">
-        🕘 سجل التحقق
-      </span>
-
-      <span>›</span>
-
-    </div>
-
-
-    <div
-      class="settings-row"
-      id="settings-delete-all-row"
-      role="button"
-      tabindex="0"
-    >
-
-      <span
-        class="settings-row-left"
-        style="color:var(--red);"
-      >
-        🗑️ حذف كل السجل
-      </span>
-
-      <span>›</span>
-
-    </div>
-
-
-    <a
-      class="settings-row"
-      href="terms.html"
-    >
-
-      <span class="settings-row-left">
-        📄 شروط الاستخدام
-      </span>
-
-      <span>›</span>
-
-    </a>
-
-
-    <a
-      class="settings-row"
-      href="privacy.html"
-    >
-
-      <span class="settings-row-left">
-        🔒 سياسة الخصوصية
-      </span>
-
-      <span>›</span>
-
-    </a>
-
-
-    <a
-      class="settings-row"
-      href="about.html"
-    >
-
-      <span class="settings-row-left">
-        ℹ️ حول التطبيق
-      </span>
-
-      <span>›</span>
-
-    </a>
-
-
-    <div
-      style="
-        margin-top:18px;
-        background:var(--surface);
-        border:1px solid var(--border-soft);
-        border-radius:14px;
-        padding:14px;
+        align-items:center;
+        justify-content:space-between;
+        font-size:12px;
+        color:var(--text-dim);
+        gap:10px;
       "
     >
 
-      <p
-        id="settings-engine-info"
-        style="
-          margin:0 0 8px;
-          font-size:12.5px;
-          color:var(--text-dim);
-        "
-      ></p>
+      <span>
+        محاكاة عدم الاتصال
+      </span>
 
-      <p
-        id="settings-usage-info"
-        style="
-          margin:0 0 12px;
-          font-size:12.5px;
-          color:var(--text-dim);
-        "
-      ></p>
+      <input
+        type="checkbox"
+        id="offline-simulation-toggle"
+      />
 
+    </label>
 
-      <label
-        style="
-          display:flex;
-          align-items:center;
-          justify-content:space-between;
-          font-size:12px;
-          color:var(--text-dim);
-          gap:10px;
-        "
-      >
+  </div>
 
-        <span>
-          محاكاة عدم الاتصال
-          (لاختبار مسار Offline)
-        </span>
-
-        <input
-          type="checkbox"
-          id="offline-simulation-toggle"
-        />
-
-      </label>
-
-    </div>
-
-  </section>
+</section>
 
 </main>
 
 
-<!-- ================= FOOTER ================= -->
 
-<footer class="site-footer">
+<!-- =====================================================
+FOOTER
+===================================================== -->
 
-  <nav aria-label="روابط تذييل الصفحة">
+<footer
+  class="site-footer"
+  style="
+    text-align:center;
+    padding:28px 18px;
+  "
+>
+
+  <nav
+    aria-label="روابط تذييل الصفحة"
+    style="
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:16px;
+    "
+  >
 
     <a href="about.html">
       عن التطبيق
@@ -1023,17 +793,23 @@
   </nav>
 
 
-  <p>
-    © مساعد التحقق الرقمي.
-    أداة مساعدة وليست جهة رسمية أو حكماً نهائياً على أمان أي رابط.
+  <p
+    style="
+      margin:0 0 10px;
+      font-size:12px;
+      color:var(--text-dim);
+    "
+  >
+    © مساعد التحقق الرقمي. أداة مساعدة وليست جهة رسمية.
   </p>
 
 
   <p
     style="
-      margin-top:12px;
+      margin:0;
+      font-size:13px;
       font-weight:600;
-      font-size:14px;
+      color:var(--text);
     "
   >
     صحّ — مساعد التحقق الرقمي
@@ -1042,9 +818,9 @@
 
   <p
     style="
-      margin-top:5px;
-      color:var(--text-faint);
+      margin:6px 0 0;
       font-size:12px;
+      color:var(--text-dim);
     "
   >
     تطوير: شهد الغزواني
@@ -1053,7 +829,10 @@
 </footer>
 
 
-<!-- ================= ONBOARDING ================= -->
+
+<!-- =====================================================
+ONBOARDING
+===================================================== -->
 
 <div
   id="onboarding-overlay"
@@ -1082,7 +861,6 @@
       قبل أن نبدأ
     </h4>
 
-
     <ul
       style="
         text-align:right;
@@ -1095,7 +873,7 @@
     >
 
       <li>
-        التطبيق أداة مساعدة، وليس حكماً نهائياً على أمان أي رابط.
+        التطبيق أداة مساعدة، وليس حكمًا نهائيًا على أمان أي رابط.
       </li>
 
       <li>
@@ -1107,7 +885,7 @@
       </li>
 
       <li>
-        لا يتم إنشاء أي حساب، ولا نطلب اسمك أو بريدك أو رقمك.
+        لا يتم إنشاء أي حساب ولا نطلب اسمك أو بريدك أو رقمك.
       </li>
 
     </ul>
@@ -1150,7 +928,10 @@
 </div>
 
 
-<!-- ================= CONFIRM MODAL ================= -->
+
+<!-- =====================================================
+CONFIRM MODAL
+===================================================== -->
 
 <div
   id="confirm-modal"
@@ -1196,7 +977,6 @@
 </div>
 
 
-<!-- ================= JAVASCRIPT ================= -->
 
 <script
   type="module"
